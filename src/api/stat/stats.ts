@@ -1,5 +1,6 @@
-import { API_BASE_URL } from "../base/base";
-import { apiClient } from "../../api/client/apiClient";
+
+import { apiClient } from "@/api/client/apiClient";
+import {API_URL} from "@/api/base/base";
 
 export interface TransferByMonth {
   month: string;
@@ -21,5 +22,5 @@ export interface StatsResponse {
 }
 
 export const fetchStats = (token: string | null): Promise<StatsResponse> => {
-  return apiClient<StatsResponse>(`${API_BASE_URL}/stats`, {}, token);
+  return apiClient<StatsResponse>(`${API_URL}/stats`, {}, token);
 };

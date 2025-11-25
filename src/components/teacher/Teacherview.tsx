@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getTeacherById, Teacher, getProfilePictureUrl } from "@/api/teachers/teachers";
-import { IMAGE_BASE_URL } from "@/api/base/base";
+import {API_DOCUMENTS_URL, IMAGE_BASE_URL} from "@/api/base/base";
 
 interface TeacherViewProps {
   teacherId?: string;
@@ -177,7 +177,8 @@ const TeacherViewLayout: React.FC<TeacherViewProps> = ({ teacherId }) => {
           <div className="flex flex-wrap gap-4">
             {files.map((item, idx) => {
               if (!item.file) return null;
-              const fileUrl = `${IMAGE_BASE_URL}/${item.file}`;
+              const fileUrl = `${API_DOCUMENTS_URL}${item.file}`;
+          
               return (
                 <div key={idx} className="flex flex-col items-center w-32">
                   {isImage(item.file) ? (

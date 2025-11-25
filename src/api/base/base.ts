@@ -1,6 +1,8 @@
 export const API_BASE_URL = "https://teacher-transfer-backend.onrender.com/api";
 export const API_URL = "http://127.0.0.1:4000/api";
+export const API_DOCUMENTS_URL = "http://127.0.0.1:4000/";
 export const API_GET_SCHOOLS_URL = "http://127.0.0.1:4000/api";
+export const API_GET_VACANCY_URL = "http://127.0.0.1:4000/api";
 export const API_GET_TEACHER_TRANSFER_URL = "http://127.0.0.1:4000/api";
 export const API_GET_TEACHER_PROFILE_URL = "http://127.0.0.1:4000/api";
 export const API_UPDATE_TEACHER_PROFILE_URL = "http://127.0.0.1:4000/api";

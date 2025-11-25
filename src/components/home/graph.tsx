@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { fetchStats } from "../../api/stat/stats";
+import { fetchStats } from "@/api/stat/stats";
 import router from "next/router";
 import { Clock, CheckCircle, XCircle } from "lucide-react";
 

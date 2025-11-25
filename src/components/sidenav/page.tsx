@@ -11,6 +11,7 @@ import {
 import { useRouter } from "next/router";
 import { getCurrentUser } from "@/api/base/jwt";
 import { useEffect, useState } from "react";
+import {FaVault} from "react-icons/fa6";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -58,15 +59,15 @@ const Sidebar = () => {
         <ul className="space-y-2">
           {/* Dashboard - Admin + Headteacher */}
           {(role === "admin" || role === "headteacher" || role === "debs" || role === "ministry admin") && (
-            <li>
-              <a
-                href="/home"
-                className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
-              >
-                <FaTachometerAlt />
-                <span>Dashboard</span>
-              </a>
-            </li>
+              <li>
+                <a
+                    href="/home"
+                    className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
+                >
+                  <FaTachometerAlt/>
+                  <span>Dashboard</span>
+                </a>
+              </li>
           )}
           {(role === "headteacher" || role === "debs" || role === "ministry admin") && (
               <>
@@ -84,26 +85,27 @@ const Sidebar = () => {
 
           {/* Teachers + Schools - Admin + Headteacher */}
           {(role === "admin" || role === "headteacher" || role === "debs" || role === "ministry admin") && (
-            <>
-              <li>
-                <a
-                  href="/teachers"
-                  className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
-                >
-                  <FaChalkboardTeacher />
-                  <span>Teachers</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/schools"
-                  className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
-                >
-                  <FaSchool />
-                  <span>Schools</span>
-                </a>
-              </li>
-            </>
+              <>
+                <li>
+                  <a
+                      href="/teachers"
+                      className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
+                  >
+                    <FaChalkboardTeacher/>
+                    <span>Teachers</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                      href="/schools"
+                      className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
+                  >
+                    <FaSchool/>
+                    <span>Schools</span>
+                  </a>
+                </li>
+              </>
           )}
 
           {/* Teachers + Schools - Admin + Headteacher */}
@@ -127,10 +129,19 @@ const Sidebar = () => {
           {/* Profile - Everyone */}
           <li>
             <a
+                href="/vacancies"
+                className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
+            >
+              <FaVault/>
+              <span>Vacancies</span>
+            </a>
+          </li>
+          <li>
+            <a
                 href="/profile"
                 className="text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
             >
-              <FaUser />
+              <FaUser/>
               <span>Profile</span>
             </a>
           </li>
@@ -138,10 +149,10 @@ const Sidebar = () => {
           {/* Logout */}
           <li>
             <button
-              onClick={handleLogout}
-              className="w-full text-left text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
+                onClick={handleLogout}
+                className="w-full text-left text-white font-medium hover:text-white hover:bg-indigo-500 text-[15px] flex items-center gap-3 rounded px-4 py-2 transition-all"
             >
-              <FaSignOutAlt />
+              <FaSignOutAlt/>
               <span>Logout</span>
             </button>
           </li>

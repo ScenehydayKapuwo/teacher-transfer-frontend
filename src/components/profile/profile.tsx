@@ -6,7 +6,7 @@ import {
   IMAGE_BASE_URL,
   API_BASE_URL,
   API_GET_TEACHER_PROFILE_URL,
-  API_UPDATE_TEACHER_PROFILE_URL, API_URL
+  API_UPDATE_TEACHER_PROFILE_URL, API_URL, API_DOCUMENTS_URL
 } from "../../api/base/base";
 import { requireToken } from "@/api/base/token";
 import router from "next/router";
@@ -424,17 +424,17 @@ const TeacherProfilePage: React.FC<{ teacherId: string }> = ({ teacherId }) => {
               <h5 className="font-semibold mb-4 text-gray-800 dark:text-gray-200">Documents</h5>
               <div className="grid grid-cols-2 gap-4">
                 {teacher.medicalCertificate && (
-                    <a href={`${API_URL}${teacher.medicalCertificate}`} target="_blank" className="btn-doc">
+                    <a href={`${API_DOCUMENTS_URL}${teacher.medicalCertificate}`} target="_blank" className="btn-doc">
                       Medical
                     </a>
                 )}
                 {teacher.academicQualifications && (
-                    <a href={`${API_URL}${teacher.academicQualifications}`} target="_blank" className="btn-doc">
+                    <a href={`${API_DOCUMENTS_URL}${teacher.academicQualifications}`} target="_blank" className="btn-doc">
                       Academic
                     </a>
                 )}
                 {teacher.professionalQualifications && (
-                    <a href={`${API_URL}${teacher.professionalQualifications}`} target="_blank"
+                    <a href={`${API_DOCUMENTS_URL}${teacher.professionalQualifications}`} target="_blank"
                        className="btn-doc col-span-2">
                       Professional
                     </a>
