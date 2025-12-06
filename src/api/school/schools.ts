@@ -7,6 +7,7 @@ export interface School {
   province: string;
   code?: string;
   school: string;
+  subject: string;
   number_of_teachers: string;
 }
 
@@ -118,6 +119,27 @@ export const updateSchool = async (school: School, token: string): Promise<Schoo
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(err.message || "Failed to update school");
+  }
+
+  return res.json();
+};
+
+export const updateVacancy = async (school: School, token: string): Promise<School> => {
+  if (!school.id) throw new Error("Vacancy ID is required for update");
+
+  const res = await fetch(`${API_Vacancy}/${school.id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(school),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    console.log(err);
+    throw new Error(err.message || "Failed to update vacancy");
   }
 
   return res.json();
